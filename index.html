@@ -1,35 +1,51 @@
 <html>
 
 <head>
-    <title>Slap Object Game</title>
+    <title>Beat the Boss, Like a Boss</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles/game.css ">
+    <!--This is for audio sources-->
+    <audio id="stabeffect">
+        <source src="assets/sounds/knife-stab.mp3" type="audio/ogg">
+    </audio>
+    <audio id="puncheffect">
+        <source src="assets/sounds/punch.mp3" type="audio/ogg">
+    </audio>
+    <audio id="stompeffect">
+        <source src="assets/sounds/stomp.mp3" type="audio/ogg">
+    </audio>
+    <audio id="intro">
+        <source src="assets/sounds/intro.mp3" type="audio/ogg">
+    </audio>
+    <!--This ends audio sources-->
 </head>
 
 <body>
-    <h1>Here is my Slap Game</h1>
-    <div class="panel panel-default ">
+
+    <h1>Beat the boss !!Like a Boss!!</h1>
+    <div id="main panel" class="panel panel">
         <!--this is where the health bar starts inside of its span-->
-        <span id="healthBar ">
-            <progress id="health" value="100" max="100">                            </progress>
+        <span id="healthBar ">Health bar
+        <progress id="health" value="100" max="100"> </progress>
         </span>
         <!--This is where the health bar ends-->
         <div class="panel-body ">
-            <img id="endgame-img" src="assets/img/death1.png" alt="Game over" hidden="true")>
-            <img style="align: absolute" class="attackpics" id="attack-img1" src="assets/img/blood11.png" alt="attack img" hidden="true";)>
-            <img class="attackpics" id="attack-img2" src="assets/img/blood2.png" alt="attack img" hidden="true">
-            <img class="attackpics" id="attack-img3" src="assets/img/pow.jpg" alt="attack img" hidden="true">
+            <!--<img id="endgame-img" src="assets/img/death1.png" alt="Game over" hidden="true" )>-->
+            <img style="align: absolute" class="attackpics" id="attack-img1" src="assets/img/blood11.png" alt="attack img" hidden="true"
+            ;)>
+            <img class="attackpics" id="attack-img2" src="assets/img/blood12.png" alt="attack img" hidden="true">
+            <img class="attackpics" id="attack-img3" src="assets/img/pow.png" alt="attack img" hidden="true">
             <img id="mainPic" src="assets/img/chacters/Boss.png " alt=" ">
-            <img id="mainPic90" src="assets/img/chacters/Boss90.png " alt=" " hidden="true">
+            <!--<img id="mainPic90" src="assets/img/chacters/Boss90.png " alt=" " hidden="true">
             <img id="mainPic70" src="assets/img/chacters/Boss70.png " alt=" " hidden="true">
             <img id="mainPic50" src="assets/img/chacters/Boss50.png " alt=" " hidden="true">
-            <img id="mainPic30" src="assets/img/chacters/Boss30.png " alt=" " hidden="true">
+            <img id="mainPic30" src="assets/img/chacters/Boss30.png " alt=" " hidden="true">-->
         </div>
         <div class="panel-footer ">
             <!--attack buttons begin-->
-            <button onclick="slap()">Smack a Boss up!</button>
-            <button onclick="kick()">Curb Stomp feels good about now!</button>
-            <button onclick="cut()">Death by 1000 cuts, SHIV HIM!</button>
+            <button onclick="attack('slap')">Smack a Boss up!</button>
+            <button onclick="attack('kick')">Curb Stomp feels good about now!</button>
+            <button onclick="attack('cut')">Death by 1000 cuts, SHIV HIM!</button>
             <!--attack buttons end-->
         </div>
     </div>
