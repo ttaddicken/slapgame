@@ -67,7 +67,7 @@ function choosePick() {
         mainPic30.hidden = true;
         endgame.hidden = false;
         setTimeout(function () {
-            alert("You have killed the boss!! Now you are the boss. How will you treat your employees?");
+            alert("!!!!ou have killed the boss!!!! Now you are the boss. How will you treat your employees?");
         }, 1000)
 
     }
