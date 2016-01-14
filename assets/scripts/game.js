@@ -48,7 +48,7 @@ function stompPick() {
         attackImg2.hidden = true;
     }, 500)
 }
-// This ends the attack picture section
+// This ends the attack picture section 
 // This function is to change the main pic for damage
 function choosePick() {
     if (healthBar.value < 91 && healthBar.value > 70) {
