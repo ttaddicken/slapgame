@@ -13,7 +13,7 @@ var mainPic = getElem("mainPic")
 // var puncheffect = getElem("puncheffect")
 var mainpanel = getElem("mainpanel")
 
-var imgCharactersUrl = 'assets/img/chacters/'
+var imgCharactersUrl = 'assets/img/characters/'
 // global Variables end
 document.getElementById("intro").play()
 
