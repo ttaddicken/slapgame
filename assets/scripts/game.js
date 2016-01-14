@@ -17,7 +17,7 @@ var imgCharactersUrl = 'assets/img/chacters/'
 // global Variables end
 document.getElementById("intro").play()
 
-function getElem(id){
+function getElem(id) {
     return document.getElementById(id);
 }
 
@@ -36,7 +36,7 @@ var bossImgs = {
 }
 
 //attack function
-function attack(type){
+function attack(type) {
     attacks[type]()
     hitSounds[type].currentTime = 0;
     showHitImg(type)
@@ -52,10 +52,10 @@ var attacks = {
     },
     kick: function kick() {
         health = health - 5
-    }, 
+    },
     cut: function cut() {
         health = health - 10
-    }   
+    }
 }
 
 var attackImgs = {
@@ -64,7 +64,7 @@ var attackImgs = {
     cut: getElem('attack-img1')
 }
 
-function showHitImg(type){
+function showHitImg(type) {
     attackImgs[type].hidden = false;
     setTimeout(function () {
         attackImgs[type].hidden = true;
@@ -94,7 +94,7 @@ function showHitImg(type){
 // This ends the attack picture section 
 // This function is to change the main pic for damage
 function choosePick() {
-    
+
     if (healthBar.value < 91 && healthBar.value > 70) {
         mainPic.src = imgCharactersUrl + bossImgs['90']
         // mainPic.hidden = true;
@@ -134,16 +134,16 @@ function choosePick() {
 // }
 // this ends the sound effects section
 // this is to change the main panel based on health
-function lowhealth(){
+function lowhealth() {
     if (healthBar.value < 50) {
-       mainpanel.classList.add("panel-danger")
+        mainpanel.classList.add("panel-danger")
     } else {
         mainpanel.classList.add("panel-default")
     }
 }
 // this is to end the section to change the main panel based on health
 // This section updates the program
-function update(){
+function update() {
     //lowhealth();
     healthBar.value = health
     choosePick()
