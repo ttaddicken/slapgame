@@ -17,19 +17,18 @@
     <audio id="intro">
         <source src="assets/sounds/intro.mp3" type="audio/ogg">
     </audio>
-    <!--This ends audio sources--> 
+    <!--This ends audio sources-->
 </head>
 
 <body>
-
     <h1>Beat the boss !!Like a Boss!!</h1>
-    <div id="main panel" class="panel panel">
+    <div id="mainPanel" class="panel panel">
         <!--this is where the health bar starts inside of its span-->
-        <span id="healthBar ">Health bar
+        <span id="healthBar">Health bar
         <progress id="health" value="100" max="100"> </progress>
         </span>
         <!--This is where the health bar ends-->
-        <div class="panel-body ">
+        <div>
             <!--<img id="endgame-img" src="assets/img/death1.png" alt="Game over" hidden="true" )>-->
             <img style="align: absolute" class="attackpics" id="attack-img1" src="assets/img/blood11.png" alt="attack img" hidden="true"
             ;)>
@@ -37,7 +36,7 @@
             <img class="attackpics" id="attack-img3" src="assets/img/pow.png" alt="attack img" hidden="true">
             <img id="mainPic" src="assets/img/characters/Boss.png " alt=" ">
         </div>
-        <div class="panel-footer ">
+        <div class="panel-footer">
             <!--attack buttons begin-->
             <button onclick="attack('slap')">Smack a Boss up!</button>
             <button onclick="attack('kick')">Curb Stomp feels good about now!</button>
@@ -45,9 +44,8 @@
             <button onclick="restartGame()">Restart Game</button>
             <!--attack buttons end-->
         </div>
-    </div>
-
-    <script src="assets/scripts/game.js "></script>
+        </div>
+<script src="assets/scripts/game.js "></script>
 </body>
 
 </html>
