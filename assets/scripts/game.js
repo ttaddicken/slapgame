@@ -2,17 +2,7 @@
 var health = 100
 var healthBar = getElem("health")
 var mainPic = getElem("mainPic")
-// var attackImg1 = getElem("attack-img1")
-// var attackImg2 = getElem("attack-img2 ")
-// var attackImg3 = getElem("attack-img3")
-// var endgame = getElem("endgame-img")
-// var mainPic90 = getElem("mainPic90")
-// var mainPic70 = getElem("mainPic70")
-// var mainPic50 = getElem("mainPic50")
-// var mainPic30 = getElem("mainPic30")
-// var puncheffect = getElem("puncheffect")
 var mainpanel = getElem("mainpanel")
-
 var imgCharactersUrl = 'assets/img/characters/'
 // global Variables end
 document.getElementById("intro").play()
@@ -20,12 +10,13 @@ document.getElementById("intro").play()
 function getElem(id) {
     return document.getElementById(id);
 }
-
+// This section starts the attack sound effects
 var hitSounds = {
     slap: getElem("puncheffect"),
     kick: getElem("stompeffect"),
     cut: getElem("stabeffect")
 }
+// this ends the sound effects section
 var bossImgs = {
     "100": 'Boss.png',
     "90": 'Boss90.png',
@@ -35,7 +26,7 @@ var bossImgs = {
     "0": 'death1.png',
 }
 
-//attack function
+//attack function begin
 function attack(type) {
     attacks[type]()
     hitSounds[type].currentTime = 0;
@@ -43,9 +34,9 @@ function attack(type) {
     hitSounds[type].play()
     update()
 }
+//attack function end
 
-
-// This is the beginning of the health bar section
+// This is the beginning of the health bar section from attacks
 var attacks = {
     slap: function slap() {
         health = health - 1
@@ -57,7 +48,9 @@ var attacks = {
         health = health - 10
     }
 }
+//  This is the end of the health bar section
 
+// This section is for attack effect images
 var attackImgs = {
     slap: getElem('attack-img3'),
     kick: getElem('attack-img2'),
@@ -70,69 +63,31 @@ function showHitImg(type) {
         attackImgs[type].hidden = true;
     }, 500)
 }
-
-//  This is the end of the health bar section
-// This section adds attack pics for .5 secs
-// function hitPick() {
-//     attackImg3.hidden = false;
-//     setTimeout(function () {
-//         attackImg3.hidden = true;
-//     }, 500)
-// }
-// function cutPick() {
-//     attackImg1.hidden = false;
-//     setTimeout(function () {
-//         attackImg1.hidden = true;
-//     }, 500)
-// }
-// function stompPick() {
-//     attackImg2.hidden = false;
-//     setTimeout(function () {
-//         attackImg2.hidden = true;
-//     }, 500)
-// }
 // This ends the attack picture section 
+
 // This function is to change the main pic for damage
 function choosePick() {
 
-    if (healthBar.value < 91 && healthBar.value > 70) {
+    if (healthBar.value === 100) {
+        mainPic.src = imgCharactersUrl + bossImgs['100']
+    } else if (healthBar.value < 91 && healthBar.value > 70) {
         mainPic.src = imgCharactersUrl + bossImgs['90']
-        // mainPic.hidden = true;
-        // mainPic90.hidden = false;
     } else if (healthBar.value < 71 && healthBar.value > 50) {
         mainPic.src = imgCharactersUrl + bossImgs['70']
-        // mainPic90.hidden = true;
-        // mainPic70.hidden = false
     } else if (healthBar.value < 51 && healthBar.value > 30) {
         mainPic.src = imgCharactersUrl + bossImgs['50']
-        // mainPic70.hidden = true;
-        // mainPic50.hidden = false;
     } else if (healthBar.value < 31 && healthBar.value > 0) {
         mainPic.src = imgCharactersUrl + bossImgs['30']
-        // mainPic50.hidden = true;
-        // mainPic30.hidden = false;
     } else if (healthBar.value === 0) {
-        // mainPic30.hidden = true;
-        // endgame.hidden = false;
+        mainPic.src = imgCharactersUrl + bossImgs['0']
         setTimeout(function () {
-            mainPic.src = imgCharactersUrl + bossImgs['0']
+            
             alert("!!!!You have killed the boss!!!! Now you are the boss. How will you treat your employees?");
         }, 1000)
-
     }
 }
 // this ends the main pic section
-// This section starts the attack sound effects
-// function stabSound() {
-//     stabeffect.play();
-// }
-// function punchSound() {
-//     puncheffect.play();
-// }
-// function stompSound() {
-//     stompeffect.play();
-// }
-// this ends the sound effects section
+
 // this is to change the main panel based on health
 function lowhealth() {
     if (healthBar.value < 50) {
@@ -149,3 +104,7 @@ function update() {
     choosePick()
 }
 // end of update
+function restartGame() {
+    health = 100;
+    update()
+}
