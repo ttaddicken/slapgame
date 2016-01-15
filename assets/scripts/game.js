@@ -3,6 +3,7 @@ var health = 100
 var healthBar = getElem("health")
 var mainPic = getElem("mainPic")
 var mainpanel = getElem("mainpanel")
+
 var imgCharactersUrl = 'assets/img/characters/'
 // global Variables end
 document.getElementById("intro").play()
@@ -79,9 +80,8 @@ function choosePick() {
     } else if (healthBar.value < 31 && healthBar.value > 0) {
         mainPic.src = imgCharactersUrl + bossImgs['30']
     } else if (healthBar.value === 0) {
-        mainPic.src = imgCharactersUrl + bossImgs['0']
         setTimeout(function () {
-            
+            mainPic.src = imgCharactersUrl + bossImgs['0']
             alert("!!!!You have killed the boss!!!! Now you are the boss. How will you treat your employees?");
         }, 1000)
     }
@@ -90,18 +90,19 @@ function choosePick() {
 
 // this is to change the main panel based on health
 function lowhealth() {
-    if (healthBar.value < 50) {
-        mainpanel.classList.add("panel-danger")
+    if (healthBar.value <= 50) {
+        healthBar.classList.add("panel-danger")
+        // mainPanel.classList.add("panel-danger")
     } else {
-        mainpanel.classList.add("panel-default")
+        mainPanel.classList.add("")
     }
 }
 // this is to end the section to change the main panel based on health
 // This section updates the program
 function update() {
-    //lowhealth();
-    healthBar.value = health
-    choosePick()
+    healthBar.value = health;
+    choosePick();
+    lowhealth();
 }
 // end of update
 function restartGame() {
