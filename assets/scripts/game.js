@@ -24,7 +24,7 @@ var bossImgs = {
     "70": 'Boss70.png',
     "50": 'Boss50.png',
     "30": 'Boss30.png',
-    "0": 'death1.png',
+    "0": 'death1.jpg',
 }
 
 //attack function begin
@@ -80,11 +80,8 @@ function choosePick() {
     } else if (healthBar.value < 31 && healthBar.value > 0) {
         mainPic.src = imgCharactersUrl + bossImgs['30']
     } else if (healthBar.value === 0) {
-        setTimeout(function () {
-            mainPic.src = imgCharactersUrl + bossImgs['0']
-            alert("!!!!You have killed the boss!!!! Now you are the boss. How will you treat your employees?");
-        }, 1000)
-    }
+        mainPic.src = imgCharactersUrl + bossImgs['0']
+            }
 }
 // this ends the main pic section
 
@@ -94,7 +91,8 @@ function lowhealth() {
         healthBar.classList.add("panel-danger")
         // mainPanel.classList.add("panel-danger")
     } else {
-        mainPanel.classList.add("")
+        healthBar.classList.remove("panel-danger")
+        console.log("I made it to remove a class" + healthBar)
     }
 }
 // this is to end the section to change the main panel based on health
@@ -105,7 +103,9 @@ function update() {
     lowhealth();
 }
 // end of update
+//this function restarts and resets the game
 function restartGame() {
     health = 100;
     update()
 }
+// end of function
